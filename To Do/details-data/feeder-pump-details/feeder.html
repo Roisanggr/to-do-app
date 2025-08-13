@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Smart Farming Dashboard - Fish & Vegetable Monitoring</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="author" content="Rois Afif Anggoro">
+    <meta name="keywords" content="Admin Dashboard">
+    <meta name="description" content="Dashlite is a Bootstrap 5 HTML/CSS Admin Dashboard">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js">
+    </script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="feeder.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+        <!-- Sidebar -->
+    <div id="sidebar" class="d-flex flex-column flex-shrink-0 text-white">
+        <div class="p-3 d-flex align-items-center justify-content-between">
+            <!-- logo -->
+            <img src="images/main-logo.png" class="img-fluid">
+            <!-- logo -->
+            <button class="btn btn-sm d-block d-lg-none" id="sidebarclose">
+                <iconify-icon icon="mdi:hamburger-menu-back" class="text-white" width="24" height="24"></iconify-icon>
+            </button>
+        </div>
+
+        <hr class="mt-0 mb-2">
+
+        <ul class="nav flex-column mb-auto px-2">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link sidebar-link py-3 active">
+                    <iconify-icon icon="material-symbols:speed-outline" width="24" height="24"></iconify-icon>
+                    Dashboard <span class="badge bg-secondary">Daily</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <input type="checkbox" id="product" name="dropdowns">
+                <label for="product" class="nav-link sidebar-link py-3 ">
+                    <iconify-icon icon="cuida:package-outline" width="24" height="24"></iconify-icon>
+                    Efficiency
+                    <iconify-icon id="downarrow" class="fa fa-angle-down" aria-hidden="true"
+                        icon="material-symbols:arrow-drop-down-rounded" width="24" height="24"></iconify-icon>
+                    <iconify-icon id="uparrow" class="fa fa-angle-down" aria-hidden="true"
+                        icon="material-symbols:arrow-drop-up-rounded" width="24" height="24"></iconify-icon>
+                </label>
+                <ul class="drop">
+                    <li>
+                        <label class="py-2">
+                            <input type="radio" id="productfirstelement" name="menu">
+                            <a href="/pages/efficiency_page/by_category/by_category.html" class="text-capitalize"> By
+                                Category </a>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="py-2">
+                            <input type="radio" id="productsecondelement" name="menu">
+                            <a href="/pages/efficiency_page/by_report/by_report.html" class="text-capitalize"> By Report
+                            </a>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="py-2">
+                            <input type="radio" id="productthirdelement" name="menu">
+                            <a href="/pages/efficiency_page/by_statistics/by_statistics.html" class="text-capitalize">
+                                By Statistics </a>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <input type="checkbox" id="order" name="dropdowns">
+                <label for="order" class="nav-link sidebar-link py-3 ">
+                    <iconify-icon icon="mdi-exclamation-thick" width="24" height="24"></iconify-icon>
+                    Reports
+                    <iconify-icon id="downarrow" class="fa fa-angle-down" aria-hidden="true"
+                        icon="material-symbols:arrow-drop-down-rounded" width="24" height="24"></iconify-icon>
+                    <iconify-icon id="uparrow" class="fa fa-angle-down" aria-hidden="true"
+                        icon="material-symbols:arrow-drop-up-rounded" width="24" height="24"></iconify-icon>
+                </label>
+                <ul class="drop list">
+                    <li>
+                        <label class="py-2">
+                            <input type="radio" id="orderfirstelement" name="menu">
+                            <a href="/pages/report_page/daily_report/daily_report.html" class="text-capitalize"> Daily
+                                Report</a>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="py-2">
+                            <input type="radio" id="ordersecondelement" name="menu">
+                            <a href="/pages/report_page/weekly_report/weekly_report.html" class="text-capitalize">
+                                Weekly Report </a>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="py-2">
+                            <input type="radio" id="orderthirdelement" name="menu">
+                            <a href="/pages/report_page/monthly_report/monthly_report.html" class="text-capitalize">
+                                Monthly Report </a>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="py-2">
+                            <input type="radio" id="orderthirdelement" name="menu">
+                            <a href="/pages/report_page/yearly_report/yearly_report.html" class="text-capitalize">
+                                Yearly Report </a>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="/pages/category_page/category.html" class="nav-link sidebar-link py-3">
+                    <iconify-icon icon="basil:layout-outline" width="24" height="24"></iconify-icon>
+                    Category
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/pages/statistics_page/statistics.html" class="nav-link sidebar-link py-3">
+                    <iconify-icon icon="iconoir:stat-up" width="24" height="24"></iconify-icon>
+                    Statistics
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/pages/support_page/support.html" class="nav-link sidebar-link py-3">
+                    <iconify-icon icon="ix:support" width="24" height="24"></iconify-icon>
+                    Support
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content">
+        <!-- Topbar -->
+        <nav id="topbar" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container-fluid p-lg-4">
+                <button class="btn btn-sm p-0" id="sidebarToggle">
+                    <iconify-icon icon="mdi:hamburger-menu-back" width="24" height="24"></iconify-icon>
+                </button>
+
+                <div class="d-flex align-items-center">
+                    <!-- Search -->
+                    <div class="me-3 position-relative">
+                        <iconify-icon icon="material-symbols:search" width="20" height="20"
+                            class="position-absolute top-50 start-0 translate-middle-y ms-2"></iconify-icon>
+                        <input type="text" class="form-control ps-4 shadow-none" placeholder="Search..."
+                            style="width: 120px;">
+                    </div>
+
+                    
+
+                    <!-- Notifications Dropdown -->
+                    <div class="dropdown me-3">
+                        <a class="position-relative" href="#" role="button" id="notificationsDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <iconify-icon icon="mdi:bell-outline" width="24" height="24"></iconify-icon>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                                8+
+                                <span class="visually-hidden">unread notifications</span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="notificationsDropdown"
+                            style="width: 320px;">
+                            <li
+                                class="dropdown-header bg-light py-2 px-3 d-flex justify-content-between align-items-center">
+                                <span>Notifications</span>
+                                <a href="#" class="small">Clear all</a>
+                            </li>
+                            <li class="px-2 py-1">
+                                <a href="#" class="dropdown-item d-flex align-items-start py-2">
+                                    <div class="me-2 text-success">
+                                        <iconify-icon icon="mdi:check-circle-outline" width="24"
+                                            height="24"></iconify-icon>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0">Your order #12345 has been shipped</p>
+                                        <small class="text-muted">Just now</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="px-2 py-1">
+                                <a href="#" class="dropdown-item d-flex align-items-start py-2">
+                                    <div class="me-2 text-warning">
+                                        <iconify-icon icon="mdi:alert-circle-outline" width="24"
+                                            height="24"></iconify-icon>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0">System maintenance scheduled for tonight</p>
+                                        <small class="text-muted">30 minutes ago</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="px-2 py-1">
+                                <a href="#" class="dropdown-item d-flex align-items-start py-2">
+                                    <div class="me-2 text-info">
+                                        <iconify-icon icon="mdi:account-plus" width="24" height="24"></iconify-icon>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0">3 new team members joined</p>
+                                        <small class="text-muted">2 hours ago</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-footer text-center py-2">
+                                <a href="#" class="text-primary">View all notifications</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- User Profile Dropdown -->
+                    <div class="dropdown">
+                        <a class="dropdown-toggle d-flex align-items-center text-decoration-none" href="#" role="button"
+                            id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="images/team1.jpg" class="rounded-circle me-2" width="32" height="32">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <iconify-icon icon="mdi:account-outline" class="me-2" width="20"
+                                        height="20"></iconify-icon>
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <iconify-icon icon="mdi:cog-outline" class="me-2" width="20"
+                                        height="20"></iconify-icon>
+                                    Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <iconify-icon icon="mdi:email-outline" class="me-2" width="20"
+                                        height="20"></iconify-icon>
+                                    Messages
+                                    <span class="ms-auto badge bg-primary rounded-pill">14</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <iconify-icon icon="mdi:logout-variant" class="me-2" width="20"
+                                        height="20"></iconify-icon>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="container-fluid px-lg-4">
+
+            <div class="py-4">
+                <h5 class="mb-0">Summary Data Feeding</h5>
+                <p class="mb-0 text-muted d-none d-md-block">Details Data Pakan Bulan.</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card stat-card d-flex">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-2">Week 1</p>
+                                <h3 class="display-6 fw-normal" id="ph-value">-</h3>
+                                <h6 class="change text-success fs-4" id="ph-status">-</h6>
+                            </div>
+                            <div class="p-4" style="background-color: #EEF3E9;">
+                                <iconify-icon icon="mdi-sprinkler-fire" class="text-success" width="35"height="35"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card stat-card d-flex">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-2">Week 2</p>
+                                <h3 class="display-6 fw-normal" id="ph-value">-</h3>
+                                <h6 class="change text-success fs-4" id="ph-status">-</h6>
+                            </div>
+                            <div class="p-4" style="background-color: #EEF3E9;">
+                                <iconify-icon icon="mdi-sprinkler-fire" class="text-success" width="35"height="35"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card stat-card d-flex">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-2">Week 3</p>
+                                <h3 class="display-6 fw-normal" id="ph-value">-</h3>
+                                <h6 class="change text-success fs-4" id="ph-status">-</h6>
+                            </div>
+                            <div class="p-4" style="background-color: #EEF3E9;">
+                                <iconify-icon icon="mdi-sprinkler-fire" class="text-success" width="35"height="35"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card stat-card d-flex">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-2">Week 4</p>
+                                <h3 class="display-6 fw-normal" id="ph-value">-</h3>
+                                <h6 class="change text-success fs-4" id="ph-status">-</h6>
+                            </div>
+                            <div class="p-4" style="background-color: #EEF3E9;">
+                                <iconify-icon icon="mdi-sprinkler-fire" class="text-success" width="35"height="35"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Delivery and Stock Report -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <h5 class="mb-0">Feeder Pump Status Details</h5>
+                            <button class="btn btn-sm btn-light ">
+                                Order Details
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/product5.jpg" alt="Product"
+                                                        class="product-img me-2">
+                                                    <div>
+                                                        <div><span class="fw-semibold fs-5">4.0 to 5.0</span>
+                                                        </div>
+                                                        <small class="text-muted">Low</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>! <span class="text-info fw-semibold">Tambahkan Pupuk</span></div>
+                                                    <span class="text-warning fw-semibold fs-5">Warning</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/product6.jpg" alt="Product"
+                                                        class="product-img me-2">
+                                                    <div>
+                                                        <div><span class="fw-semibold fs-5">6.0 to 7.0</span>
+                                                        </div>
+                                                        <small class="text-muted">Middle</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>! <span class="text-info fw-semibold">Sudah Baik</span></div>
+                                                    <span class="text-success fw-semibold fs-5">Good</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/product2.jpg" alt="Product"
+                                                        class="product-img me-2">
+                                                    <div>
+                                                        <div><span class="fw-semibold fs-5">8.0 to 9.0</span></div>
+                                                        <small class="text-muted">High</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>! <span class="text-info fw-semibold">Bersihkan Air</span></div>
+                                                    <span class="text-danger fw-semibold fs-5">Bad</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Data Feeder Pump Report</h5>
+                            <div class="d-flex">
+                                <div class="dropdown me-2">
+                                    <button class="btn btn-sm btn-light dropdown-toggle" type="button"
+                                        id="changeByDropdown" data-bs-toggle="dropdown">
+                                        Change by: All
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">All</a></li>
+                                        <li><a class="dropdown-item" href="#">This Week</a></li>
+                                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown me-2">
+                                    <button class="btn btn-sm btn-light dropdown-toggle" type="button"
+                                        id="statusDropdown" data-bs-toggle="dropdown">
+                                        Status: All
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">All</a></li>
+                                        <li><a class="dropdown-item" href="#">Active</a></li>
+                                        <li><a class="dropdown-item" href="#">Inactive</a></li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn-sm btn-light">
+                                    View Stock Items
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Status</th>
+                                            <th>Method</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="text-success">ON</td>
+                                            <td class="text-muted">Auto</td>
+                                            <td>10:30 24/07/2025</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="text-danger">OFF</td>
+                                            <td class="text-muted">Auto</td>
+                                            <td>10:30 25/07/2025</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="text-success">ON</td>
+                                            <td class="text-muted">Manual</td>
+                                            <td>10:30 24/07/2025</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="text-danger">OFF</td>
+                                            <td class="text-muted">Manual</td>
+                                            <td>10:30 25/07/2025</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span class="text-muted">Showing 6 out of 50 Results</span>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active" aria-current="page"><a class="page-link "
+                                                href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="container-fluid bg-white ">
+            <footer class="row align-items-center py-4">
+                <div class="col-md-6 ">
+                    <p class="m-0">© DashLite - Admin Dashboard </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="m-0" class="">HTML Website Template By : <a href="https://www.instagram.com/rois.anggr_/"
+                            class="text-decoration-underline" target="_blank">Rois Afif Anggoro</a></p>
+                </div>
+            </footer>
+        </footer>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://code.iconify.design/3/3.0.1/iconify.min.js"></script>
+
+    <!-- script cek kadar ph -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/php/ph-logs/index.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("ph-value").innerText = "-";
+                        document.getElementById("ph-status").innerText = "Tidak tersedia";
+                    } else {
+                        document.getElementById("ph-value").innerText = data.value;
+                        const statusElement = document.getElementById("ph-status");
+                        statusElement.innerText = data.status === 1 ? 'Normal' : 'Tidak Normal';
+                        statusElement.className = data.status === 1
+                            ? "change text-success fs-4"
+                            : "change text-danger fs-4";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("ph-value").innerText = "Error";
+                });
+        });
+    </script>
+    <!-- script cek kadar ph -->
+
+    <!-- script cek kelembapan tanaman -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/php/moisture-logs/index.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("moisture-value").innerText = "-";
+                        document.getElementById("moisture-status").innerText = "Tidak tersedia";
+                    } else {
+                        document.getElementById("moisture-value").innerText = data.value;
+                        const statusElement = document.getElementById("moisture-status");
+                        statusElement.innerText = data.status === 1 ? 'Normal' : 'Kering';
+                        statusElement.className = data.status === 1
+                            ? "change text-success fs-4"
+                            : "change text-danger fs-4";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("moisture-value").innerText = "Error";
+                });
+        });
+    </script>
+    <!-- script cek kelembapan tanaman -->
+
+    <!-- script pompa aktif berapa kali dalam sehari -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/php/water-pump-logs/index.php')
+                .then(response => {
+                    // Tampilkan response untuk debugging
+                    console.log("Response status:", response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Data received:", data);
+
+                    if (data.error) {
+                        document.getElementById("water-pump-value").innerText = "Err";
+                        console.error("Error:", data.error);
+                    } else {
+                        // Pastikan nilai adalah integer
+                        const total = parseInt(data.total);
+                        document.getElementById("water-pump-value").innerText = total;
+
+                        // Tampilkan status tambahan jika diperlukan
+                        const statusElement = document.getElementById("water-pump-status");
+                        if (statusElement) {
+                            if (total > 0) {
+                                statusElement.innerText = "Aktif";
+                                statusElement.className = "change text-success fs-4";
+                            } else {
+                                statusElement.innerText = "Tidak Aktif";
+                                statusElement.className = "change text-danger fs-4";
+                            }
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error("Fetch error:", error);
+                    document.getElementById("water-pump-value").innerText = "Err";
+                });
+        });
+    </script>
+    <!-- script pompa aktif berapa kali dalam sehari -->
+
+    <!-- script pompa pakan aktif berapa kali dalam sehari -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/php/feeder-pump-logs/index.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("feeder-pump-value").innerText = "-";
+                    } else {
+                        document.getElementById("feeder-pump-value").innerText = data.total;
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("feeder-pump-value").innerText = "Error";
+                });
+        });
+    </script>
+    <!-- script pompa pakan aktif berapa kali dalam sehari -->
+</body>
+
+</html>
