@@ -75,14 +75,14 @@ document.querySelectorAll('.sidebar-link').forEach(link => {
 
 
 function initCharts() {
-    createChart("revenueChart", {
+    createChart("budgetChart", {
         type: "line",
         data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            labels: ["Minggu Ke-1", "Minggu Ke-2", "Minggu Ke-3", "Minggu Ke-4",],
             datasets: [
                 {
-                    label: "Revenue3",
-                    data: [753, 291, 847, 502, 134, 921, 678, 435, 998, 210, 567, 89],
+                    label: "Transport",
+                    data: [15000, 10000, 10000, 25000],
                     borderColor: "#88B267",
                     backgroundColor: "#EEF3E9",
                     borderWidth: 2,
@@ -90,8 +90,8 @@ function initCharts() {
                     tension: 0.4,
                 },
                 {
-                    label: "Revenue2",
-                    data: [1523, 1876, 1345, 1789, 1102, 1934, 1428, 1657, 1982, 1275, 1740, 1890],
+                    label: "Makan",
+                    data: [15000, 18000, 13000, 17000],
                     borderColor: "#F39C12",
                     backgroundColor: "#F9F5EE",
                     borderWidth: 2,
@@ -99,8 +99,17 @@ function initCharts() {
                     tension: 0.4,
                 },
                 {
-                    label: "Revenue1",
-                    data: [2734, 2890, 2456, 2987, 2156, 2765, 2932, 2345, 2876, 2098, 2645, 2990],
+                    label: "Kuota",
+                    data: [27000, 28000, 24000, 29000],
+                    borderColor: "#65A1CB",
+                    backgroundColor: "#E1F0FA",
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                },
+                {
+                    label: "Lain-lain",
+                    data: [27000, 28000, 24000, 29000],
                     borderColor: "#65A1CB",
                     backgroundColor: "#E1F0FA",
                     borderWidth: 2,
@@ -225,3 +234,40 @@ function initQuantitySpinner() {
       });
     });
   }
+  
+  // Fungsi untuk update waktu real-time
+function updateRealtimeClock() {
+    const now = new Date();
+    
+    // Format waktu: hh:mm
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const timeString = `${hours}:${minutes}`;
+    
+    // Format tanggal: day, dd/mm/yyyy
+    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const dayName = days[now.getDay()];
+    
+    const day = now.getDate().toString().padStart(2, '0');
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const year = now.getFullYear();
+    const dateString = `${dayName}, ${day}/${month}/${year}`;
+    
+    // Gabungkan format yang diinginkan: hh:mm - day, dd/mm/yyyy
+    const formattedDateTime = `${timeString} - ${dateString}`;
+    
+    // Update elemen dengan ID realtime-clock
+    const clockElement = document.getElementById('realtime-clock');
+    if (clockElement) {
+        clockElement.textContent = formattedDateTime;
+    }
+}
+
+// Inisialisasi dan update waktu setiap menit
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('realtime-clock')) {
+        updateRealtimeClock();
+        setInterval(updateRealtimeClock, 60000); // Update setiap menit
+    }
+});
+

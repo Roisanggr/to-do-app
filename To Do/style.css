@@ -494,3 +494,11 @@ canvas {
 .product-tabs .nav-tabs .nav-link.active {
   color: var(--bs-dark);
 }
+
+/* Realtime Clock Styles
+------------------------------------------------------------- */
+#realtime-clock {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #6c757d;
+}
