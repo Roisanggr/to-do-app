@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Smart Farming Dashboard - Efficiency Dashboard</title>
+    <title>DashLite - To Do & Daily Tracker App</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,12 +31,70 @@
     <!-- Sales By Location, Age & Gender -->
 
 
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4ff;
+    }
 
+    /* Overlay transparan fullscreen */
+    .welcome-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .welcome-box {
+      background: white;
+      padding: 25px;
+      border-radius: 25px;
+      text-align: center;
+      width: 300px;
+      animation: bounceIn 0.8s ease-out;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .welcome-gif {
+      width: 100px;
+      height: 100px;
+      border-radius: 15px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; } 
+      to { opacity: 1; }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
 
 
 </head>
 
 <body>
+
+    <div id="welcome" class="welcome-overlay" style="display:none;">
+    <div class="welcome-box">
+      <img
+        src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MWR4OHFidHQ0c2l2NHpqNG1ubDAzd21ubWg4amF6c3ZzNjZzbDR5NyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/yyVph7ANKftIs/giphy.gif"
+        alt="Sambutan Lucu"
+        class="welcome-gif"
+      />
+        <h3><strong>Hallo Hawina Cantik !</strong></h3>
+        <p>Semoga Hari Kamu Menyenangkan 😄</p>
+    </div>
+</div>
     <!-- Sidebar -->
     <div id="sidebar" class="d-flex flex-column flex-shrink-0 text-white">
         <div class="p-3 d-flex align-items-center justify-content-between">
@@ -77,22 +135,22 @@
                     <li>
                         <label class="py-2">
                             <input type="radio" id="trackerssecondelement" name="menu">
-                            <a href="/pages/trackers/weekly/weekly.html" class="text-capitalize">Weekly  </a>
+                            <a href="/pages/trackers/weekly/weekly.html" class="text-capitalize">Weekly </a>
                         </label>
                     </li>
                     <li>
                         <label class="py-2">
                             <input type="radio" id="trackersthirdelement" name="menu">
-                            <a href="/pages/trackers/monthly/monthly.html" class="text-capitalize">Monthly  </a>
+                            <a href="/pages/trackers/monthly/monthly.html" class="text-capitalize">Monthly </a>
                         </label>
                     </li>
                     <li>
                         <label class="py-2">
                             <input type="radio" id="trackersthirdelement" name="menu">
-                            <a href="/pages/trackers/yearly/yearly.html" class="text-capitalize"> Yearly  </a>
+                            <a href="/pages/trackers/yearly/yearly.html" class="text-capitalize"> Yearly </a>
                         </label>
                     </li>
-                </ul> 
+                </ul>
             </li>
             <li class="nav-item">
                 <input type="checkbox" id="budget" name="dropdowns">
@@ -114,22 +172,22 @@
                     <li>
                         <label class="py-2">
                             <input type="radio" id="budgetsecondelement" name="menu">
-                            <a href="/pages/budget/weekly/weekly.html" class="text-capitalize">Weekly  </a>
+                            <a href="/pages/budget/weekly/weekly.html" class="text-capitalize">Weekly </a>
                         </label>
                     </li>
                     <li>
                         <label class="py-2">
                             <input type="radio" id="budgetthirdelement" name="menu">
-                            <a href="/pages/budget/monthly/monthly.html" class="text-capitalize">Monthly  </a>
+                            <a href="/pages/budget/monthly/monthly.html" class="text-capitalize">Monthly </a>
                         </label>
                     </li>
                     <li>
                         <label class="py-2">
                             <input type="radio" id="budgetthirdelement" name="menu">
-                            <a href="/pages/budget/yearly/yearly.html" class="text-capitalize"> Yearly  </a>
+                            <a href="/pages/budget/yearly/yearly.html" class="text-capitalize"> Yearly </a>
                         </label>
                     </li>
-                </ul> 
+                </ul>
             </li>
             <li class="nav-item">
                 <a href="/pages/calendar/calendar.html" class="nav-link sidebar-link py-3">
@@ -158,7 +216,7 @@
                             style="width: 120px;">
                     </div>
 
-                   
+
 
                     <!-- Notifications Dropdown -->
                     <div class="dropdown me-3">
@@ -222,7 +280,7 @@
                     <div class="dropdown">
                         <a class="dropdown-toggle d-flex align-items-center text-decoration-none" href="#" role="button"
                             id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="////images/team1.jpg" class="rounded-circle me-2" width="32" height="32">
+                            <img src="/images/team1.jpg" class="rounded-circle me-2" width="32" height="32">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
@@ -267,84 +325,188 @@
         <div class="container-fluid px-lg-4">
 
             <div class="py-4">
-                <h5 class="mb-0">Hello World, Welcome!</h5>
-                <p class="mb-0 text-muted d-none d-md-block">Show your day very happy with us.</p>
+                <h5 class="mb-0"></h5>
+                <p class="mb-0 text-muted d-none d-md-block"></p>
             </div>
 
-            
 
 
 
-<div class="container md-2 col-lg-8" style="margin-left: 0;"></div>
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="card-title mb-0">Daily Budget List</h5>
-                <div id="realtime-clock" class="text-bold"></div>
+
+            <div class="container md-2 col-lg-8" style="margin-left: 0;"></div>
+            <!-- Notifikasi sukses -->
+            <div id="notif-success" class="alert alert-success alert-dismissible fade show d-none" role="alert"
+                style="position:fixed;top:20px;right:20px;z-index:9999;">
+                <span id="notif-success-msg"></span>
+                <button type="button" class="btn btn-sm btn-primary ms-3" id="notif-success-ok">OK</button>
             </div>
-
-            <div class="d-flex justify-content-between mb-2">
-                <div>
-                    <button class="btn btn-success me-2">+ Add</button>
+            <!-- Tabel add/post data -->
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="card-title mb-0">Tambah Budget Baru</h5>
+                        <div id="realtime-clock" class="text-bold"></div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <button class="btn btn-success me-2" data-bs-toggle="modal"
+                                data-bs-target="#addBudgetModal">+ Add</button>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Search..." style="width: 200px;">
+                        </div>
+                    </div>
+                    <table class="table table-bordered align-middle table-hover" id="budget-table">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="text-center">No.</th>
+                                <th class="text-center">Waktu</th>
+                                <th class="text-center">Pengeluaran Untuk</th>
+                                <th class="text-center">Kategori</th>
+                                <th class="text-center">Harga</th>
+                                <th class="text-center">Note</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="budget-tbody">
+                            <!-- Baris add/post baru akan diisi via JS -->
+                        </tbody>
+                    </table>
                 </div>
-                <div>
-                    <input type="text" class="form-control" placeholder="Search..." style="width: 200px;">
+            </div>
+            <!-- Tabel data dari database -->
+            <div class="card shadow-sm mb-4 mt-4">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Pengeluaran Hari Ini</h5>
+                    <table class="table table-bordered align-middle table-hover" id="budget-db-table">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="text-center">No.</th>
+                                <th class="text-center">Waktu</th>
+                                <th class="text-center">Pengeluaran Untuk</th>
+                                <th class="text-center">Kategori</th>
+                                <th class="text-center">Harga</th>
+                                <th class="text-center">Note</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="budget-db-tbody">
+                            <!-- Data dari database akan diisi via JS -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
-            <table class="table table-bordered align-middle table-hover">
-                <thead class="table-light">
-                    <tr>
-                        <th class="text-center">No.</th>
-                        <th class="text-center">Waktu</th>
-                        <th class="text-center">Pengeluaran Untuk</th>
-                        <th class="text-center">Kategori</th>
-                        <th class="text-center">Harga</th>
-                        <th class="text-center">Note</th>
-                        <th class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td class="text-center">15:00</td>
-                        <td class="text-center">Makan</td>
-                        <td class="text-center"><span class="badge bg-success">Food</span></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="text" class="form-control"></td>
-                        <td class="text-center">
-                            <button class="btn btn-sm btn-success ">
-                                <iconify-icon icon="ri-send-plane-fill" width="24" height="24"></iconify-icon>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td class="text-center">18:30</td>
-                        <td class="text-center">Transportasi </td>
-                        <td class="text-center"><span class="badge bg-info">Traveling</span></td>
-                        <td><input type="number" class="form-control"></td>
-                        <td><input type="text" class="form-control"></td>
-                        <td class="text-center">
-                            <button class="btn btn-sm btn-success ">
-                                <iconify-icon icon="ri-send-plane-fill" width="24" height="24"></iconify-icon>
-                            </button>
-                        </td>
-                    </tr>
-                    <!-- Tambah baris lain sesuai kebutuhan -->
-                </tbody>
-            </table>
         </div>
-    </div>
+
+        <!-- Modal Add Budget -->
+        <div class="modal fade" id="addBudgetModal" tabindex="-1" aria-labelledby="addBudgetModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <form id="addBudgetForm" autocomplete="off">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addBudgetModalLabel">Add New Budget</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-2">
+                                <label class="form-label">Kategori</label>
+                                <select id="modal-category" class="form-select" required>
+                                    <option value="Food">Food</option>
+                                    <option value="Traveling">Traveling</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Waktu</label>
+                                <input id="modal-time" type="time" step="60" class="form-control" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Pengeluaran Untuk</label>
+                                <input id="modal-desc" class="form-control" placeholder="Pengeluaran Untuk" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Harga</label>
+                                <input id="modal-price" type="number" class="form-control" placeholder="Harga" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Note</label>
+                                <input id="modal-note" class="form-control" placeholder="Note">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal Edit Budget -->
+        <div class="modal fade" id="editBudgetModal" tabindex="-1" aria-labelledby="editBudgetModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form id="editBudgetForm" autocomplete="off">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editBudgetModalLabel">Edit Budget</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="edit-id">
+            <div class="mb-2">
+                <label class="form-label">Kategori</label>
+                <select id="edit-category" class="form-select" required>
+                    <option value="Food">Food</option>
+                    <option value="Traveling">Traveling</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Waktu</label>
+                <input id="edit-time" type="time" class="form-control" required>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Pengeluaran Untuk</label>
+                <input id="edit-desc" class="form-control" placeholder="Pengeluaran Untuk" required>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Harga</label>
+                <input id="edit-price" type="number" class="form-control" placeholder="Harga" required>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Note</label>
+                <input id="edit-note" class="form-control" placeholder="Note">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
-
-                
-
-            <!-- Best Selling Items and Top Sellers -->
-            
-
-
+        <!-- Modal Konfirmasi Kirim -->
+        <div class="modal fade" id="confirmSendModal" tabindex="-1" aria-labelledby="confirmSendModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmSendModalLabel">Konfirmasi Kirim</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Apakah Anda yakin ingin mengirim data ini ke database?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-success" id="confirmSendBtn">Kirim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Footer -->
         <footer class="container-fluid bg-white ">
             <footer class="row align-items-center py-4">
@@ -364,7 +526,519 @@
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="/js/script.js"></script>
-    <script src="https://code.iconify.design/3/3.0.1/iconify.min.js"></script>
+<script type="text/javascript" src="/js/script.js"></script>
+<script src="https://code.iconify.design/3/3.0.1/iconify.min.js"></script>
+
+<script>
+    window.onload = function() {
+        const welcome = document.getElementById('welcome');
+        welcome.style.display = 'flex';
+
+        // Hilang setelah 3 detik
+        setTimeout(() => {
+            welcome.style.display = 'none';
+        }, 5000);
+    }
+</script>
+
+<script>
+   // Helper untuk format waktu dari datetime ke HH:MM
+function formatTimeFromDatetime(datetimeStr) {
+    if (!datetimeStr) return '';
+    try {
+        const date = new Date(datetimeStr);
+        if (isNaN(date)) throw new Error('Invalid date');
+
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${hours}:${minutes}`;
+    } catch (e) {
+        console.error('Error formatting time:', e);
+        return datetimeStr.split(' ')[1]?.substring(0, 5) || '';
+    }
+}
+
+// Tampilkan data dari database di tabel khusus
+function renderBudgetDbRows(rows) {
+    const tbody = document.getElementById('budget-db-tbody');
+    if (!tbody) {
+        console.error('Element budget-db-tbody not found');
+        return;
+    }
+    
+    tbody.innerHTML = '';
+    
+    if (!rows || !Array.isArray(rows) || rows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="text-center text-muted">Belum ada data di database.</td></tr>`;
+        return;
+    }
+    
+    console.log('Rendering', rows.length, 'rows');
+    
+    rows.forEach((row, idx) => {
+        let badge = '';
+        if (row.kategori === 'Food') {
+            badge = '<span class="badge bg-success">Food</span>';
+        } else if (row.kategori === 'Traveling') {
+            badge = '<span class="badge bg-info">Traveling</span>';
+        } else {
+            badge = '<span class="badge bg-secondary">Other</span>';
+        }
+        
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td class="text-center">${idx + 1}</td>
+            <td class="text-center">${formatTimeFromDatetime(row.waktu)}</td>
+            <td class="text-center">${row.pengeluaran_untuk || ''}</td>
+            <td class="text-center">${badge}</td>
+            <td class="text-center">Rp ${parseInt(row.harga || 0).toLocaleString('id-ID')}</td>
+            <td class="text-center">${row.note || '-'}</td>
+            <td class="text-center">
+                <button class="btn btn-sm btn-warning me-1 edit-btn" data-id="${row.id}" title="Edit">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-danger delete-btn" data-id="${row.id}" title="Hapus">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        `;
+        
+        // Event listeners untuk tombol edit dan delete
+        const editBtn = tr.querySelector('.edit-btn');
+        const deleteBtn = tr.querySelector('.delete-btn');
+        
+        if (editBtn) {
+            editBtn.addEventListener('click', () => editBudgetRow(row));
+        }
+        
+        if (deleteBtn) {
+            deleteBtn.addEventListener('click', () => deleteBudgetRow(row.id, row.pengeluaran_untuk));
+        }
+        
+        tbody.appendChild(tr);
+    });
+}
+
+// AJAX load data dari DB dengan error handling yang lebih baik
+function loadBudgetFromDB() {
+    console.log('🔄 Loading data from database...');
+    
+    const tbody = document.getElementById('budget-db-tbody');
+    if (tbody) {
+        tbody.innerHTML = `<tr><td colspan="7" class="text-center">
+            <div class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            Loading...
+        </td></tr>`;
+    }
+    
+    fetch('/php/daily-budget/index.php', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        cache: 'no-cache'
+    })
+    .then(response => {
+        console.log('📡 Response received:', response.status, response.statusText);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const contentType = response.headers.get('content-type');
+        console.log('📄 Content-Type:', contentType);
+        
+        if (!contentType || !contentType.includes('application/json')) {
+            return response.text().then(text => {
+                console.error('❌ Non-JSON response:', text.substring(0, 200));
+                throw new Error('Server tidak mengembalikan JSON. Response: ' + text.substring(0, 100));
+            });
+        }
+        
+        return response.json();
+    })
+    .then(data => {
+        console.log('✅ Data received successfully:', data);
+        
+        if (Array.isArray(data)) {
+            renderBudgetDbRows(data);
+            console.log('✅ Data rendered successfully');
+        } else if (data && data.success === false) {
+            throw new Error(data.msg || 'Server error');
+        } else {
+            console.error('❌ Unexpected data format:', data);
+            throw new Error('Format data tidak sesuai: ' + JSON.stringify(data).substring(0, 100));
+        }
+    })
+    .catch(error => {
+        console.error('❌ Load error:', error);
+        showDbTableError(`Gagal mengambil data: ${error.message}`);
+        
+        // Auto retry setelah 5 detik jika error network
+        if (error.message.includes('fetch') || error.message.includes('network')) {
+            setTimeout(() => {
+                console.log('🔄 Retrying...');
+                loadBudgetFromDB();
+            }, 5000);
+        }
+    });
+}
+
+function showDbTableError(msg) {
+    const tbody = document.getElementById('budget-db-tbody');
+    if (tbody) {
+        tbody.innerHTML = `<tr><td colspan="7" class="text-center text-danger">
+            <i class="bi bi-exclamation-triangle"></i> ${msg}
+            <br><small class="text-muted">Cek console untuk detail error</small>
+        </td></tr>`;
+    }
+}
+
+// Notifikasi sukses dengan auto-hide
+function showSuccessNotif(msg, callback) {
+    const notif = document.getElementById('notif-success');
+    const notifMsg = document.getElementById('notif-success-msg');
+    
+    if (!notif || !notifMsg) {
+        alert(msg); // Fallback jika element tidak ada
+        if (typeof callback === 'function') callback();
+        return;
+    }
+    
+    notifMsg.textContent = msg;
+    notif.classList.remove('d-none');
+    
+    // Auto hide setelah 3 detik
+    const autoHideTimeout = setTimeout(() => {
+        notif.classList.add('d-none');
+        if (typeof callback === 'function') callback();
+    }, 3000);
+    
+    // Manual close
+    document.getElementById('notif-success-ok').onclick = function () {
+        clearTimeout(autoHideTimeout);
+        notif.classList.add('d-none');
+        if (typeof callback === 'function') callback();
+    };
+}
+
+// Modal konfirmasi untuk send
+let pendingSend = null;
+function showConfirmSendModal(tr, data) {
+    const modal = document.getElementById('confirmSendModal');
+    if (!modal) {
+        console.error('Confirm modal not found');
+        return;
+    }
+    
+    pendingSend = { tr, data };
+    const bootstrapModal = new bootstrap.Modal(modal);
+    bootstrapModal.show();
+    
+    const confirmBtn = document.getElementById('confirmSendBtn');
+    if (confirmBtn) {
+        confirmBtn.disabled = false;
+        confirmBtn.onclick = function () {
+            confirmBtn.disabled = true;
+            sendBudgetRow(pendingSend.tr, pendingSend.data, bootstrapModal, confirmBtn);
+        };
+    }
+}
+
+// Kirim data ke database dengan validation yang ketat
+function sendBudgetRow(tr, data, modalInstance, confirmBtn) {
+    const timeInput = tr.querySelector('input[type="time"]');
+    const priceInput = tr.querySelector('input[type="number"]');
+    const noteInput = tr.querySelector('input[type="text"]');
+    
+    if (!timeInput || !priceInput) {
+        alert('Form input tidak lengkap');
+        if (confirmBtn) confirmBtn.disabled = false;
+        return;
+    }
+    
+    const time = timeInput.value;
+    const price = parseFloat(priceInput.value);
+    const note = noteInput ? noteInput.value.trim() : '';
+
+    // Validasi ketat
+    if (!time || isNaN(price) || price <= 0) {
+        alert('Waktu dan harga valid wajib diisi!');
+        if (confirmBtn) confirmBtn.disabled = false;
+        return;
+    }
+
+    // Format waktu untuk database
+    const now = new Date();
+    const [hours, minutes] = time.split(':').map(Number);
+    const waktu = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, 0);
+    const waktuString = waktu.toISOString().slice(0, 19).replace('T', ' ');
+
+    const payload = {
+        waktu: waktuString,
+        pengeluaran_untuk: data.desc,
+        kategori: data.category,
+        harga: price,
+        note: note
+    };
+
+    console.log('📤 Sending data:', payload);
+
+    fetch('/php/daily-budget/index.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => {
+        console.log('📡 Send response:', response.status, response.statusText);
+        
+        if (!response.ok) {
+            return response.text().then(text => {
+                throw new Error(`HTTP ${response.status}: ${text.substring(0, 100)}`);
+            });
+        }
+        
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            return response.text().then(text => {
+                throw new Error('Server tidak mengembalikan JSON: ' + text.substring(0, 100));
+            });
+        }
+        
+        return response.json();
+    })
+    .then(result => {
+        console.log('✅ Send result:', result);
+        
+        if (result && result.success === true) {
+            if (modalInstance) modalInstance.hide();
+            tr.remove();
+            
+            showSuccessNotif('✅ Data berhasil dikirim!', () => {
+                loadBudgetFromDB(); // Reload data
+            });
+        } else {
+            throw new Error(result?.msg || 'Response tidak valid dari server');
+        }
+    })
+    .catch(error => {
+        console.error('❌ Send error:', error);
+        alert('❌ Gagal menyimpan data:\n' + error.message);
+        if (confirmBtn) confirmBtn.disabled = false;
+    });
+}
+
+// Edit budget row
+function editBudgetRow(rowData) {
+    console.log('🔧 Edit budget:', rowData);
+    
+    // Isi form modal dengan data existing
+    document.getElementById('modal-category').value = rowData.kategori;
+    document.getElementById('modal-time').value = formatTimeFromDatetime(rowData.waktu);
+    document.getElementById('modal-desc').value = rowData.pengeluaran_untuk;
+    document.getElementById('modal-price').value = rowData.harga;
+    document.getElementById('modal-note').value = rowData.note || '';
+    
+    // Ubah title modal dan button text
+    document.getElementById('addBudgetModalLabel').textContent = 'Edit Budget';
+    const submitBtn = document.querySelector('#addBudgetForm button[type="submit"]');
+    submitBtn.textContent = 'Update';
+    submitBtn.className = 'btn btn-warning';
+    
+    // Set flag untuk update mode
+    document.getElementById('addBudgetForm').setAttribute('data-edit-id', rowData.id);
+    
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('addBudgetModal'));
+    modal.show();
+}
+
+// Update budget data
+function updateBudgetData(id, data) {
+    console.log('📤 Updating data:', id, data);
+    
+    const payload = {
+        id: parseInt(id),
+        waktu: data.waktu,
+        pengeluaran_untuk: data.desc,
+        kategori: data.category,
+        harga: data.price,
+        note: data.note
+    };
+
+    fetch('/php/daily-budget/index.php', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.text().then(text => {
+                throw new Error(`HTTP ${response.status}: ${text.substring(0, 100)}`);
+            });
+        }
+        
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            return response.text().then(text => {
+                throw new Error('Server tidak mengembalikan JSON: ' + text.substring(0, 100));
+            });
+        }
+        
+        return response.json();
+    })
+    .then(result => {
+        console.log('✅ Update result:', result);
+        
+        if (result && result.success === true) {
+            showSuccessNotif('✅ Data berhasil diupdate!', () => {
+                loadBudgetFromDB(); // Reload data
+            });
+        } else {
+            throw new Error(result?.msg || 'Response tidak valid dari server');
+        }
+    })
+    .catch(error => {
+        console.error('❌ Update error:', error);
+        alert('❌ Gagal mengupdate data:\n' + error.message);
+    });
+}
+
+// Soft delete budget row
+function deleteBudgetRow(id, desc) {
+    if (!confirm(`Apakah Anda yakin ingin menghapus budget "${desc}"?`)) {
+        return;
+    }
+    
+    console.log('🗑️ Deleting budget:', id);
+    
+    fetch(`/php/daily-budget/index.php?id=${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.text().then(text => {
+                throw new Error(`HTTP ${response.status}: ${text.substring(0, 100)}`);
+            });
+        }
+        
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            return response.text().then(text => {
+                throw new Error('Server tidak mengembalikan JSON: ' + text.substring(0, 100));
+            });
+        }
+        
+        return response.json();
+    })
+    .then(result => {
+        console.log('✅ Delete result:', result);
+        
+        if (result && result.success === true) {
+            showSuccessNotif('✅ Data berhasil dihapus!', () => {
+                loadBudgetFromDB(); // Reload data
+            });
+        } else {
+            throw new Error(result?.msg || 'Response tidak valid dari server');
+        }
+    })
+    .catch(error => {
+        console.error('❌ Delete error:', error);
+        alert('❌ Gagal menghapus data:\n' + error.message);
+    });
+}
+
+// Reset modal to add mode
+function resetModalToAddMode() {
+    document.getElementById('addBudgetModalLabel').textContent = 'Add New Budget';
+    const submitBtn = document.querySelector('#addBudgetForm button[type="submit"]');
+    submitBtn.textContent = 'Add';
+    submitBtn.className = 'btn btn-success';
+    
+    document.getElementById('addBudgetForm').removeAttribute('data-edit-id');
+}
+
+// Tambah baris budget baru (belum disimpan ke DB)
+function addBudgetRow(data) {
+    const tbody = document.getElementById('budget-tbody');
+    if (!tbody) {
+        console.error('budget-tbody element not found');
+        return;
+    }
+    
+    const rowCount = tbody.querySelectorAll('tr').length + 1;
+    
+    let badge = '';
+    if (data.category === 'Food') {
+        badge = '<span class="badge bg-success">Food</span>';
+    } else if (data.category === 'Traveling') {
+        badge = '<span class="badge bg-info">Traveling</span>';
+    } else {
+        badge = '<span class="badge bg-secondary">Other</span>';
+    }
+    
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+        <td class="text-center">${rowCount}</td>
+        <td><input type="time" class="form-control" value="${data.time}" required step="60"></td>
+        <td class="text-center">${data.desc}</td>
+        <td class="text-center">${badge}</td>
+        <td><input type="number" class="form-control" value="${data.price}" required min="1" step="1"></td>
+        <td><input type="text" class="form-control" value="${data.note || ''}" maxlength="100"></td>
+        <td class="text-center">
+            <button type="button" class="btn btn-sm btn-success send-btn" title="Kirim ke Database">
+                <i class="bi bi-send"></i>
+            </button>
+        </td>
+    `;
+    
+    // Event listener untuk tombol send
+    const sendBtn = tr.querySelector('.send-btn');
+    if (sendBtn) {
+        sendBtn.addEventListener('click', function () {
+            showConfirmSendModal(tr, data);
+        });
+    }
+    
+    tbody.appendChild(tr);
+    console.log('✅ New row added to table');
+}
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('🚀 DOM loaded, initializing...');
+    
+    // Load initial data
+    loadBudgetFromDB();
+    
+    // Real-time clock
+    function updateClock() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('id-ID', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        const clockElement = document.getElementById('realtime-clock');
+        if (clockElement) {
+            clockElement.textContent = timeString;
+        }
+    }
+})
+
+</script>
 
 </html>

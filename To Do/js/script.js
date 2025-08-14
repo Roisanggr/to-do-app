@@ -50,6 +50,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Fungsi untuk greeting sesuai waktu
+    function updateGreeting() {
+        const greetingElement = document.getElementById('greeting');
+        if (!greetingElement) return;
+        const now = new Date();
+        const hour = now.getHours();
+        let greeting = "Good Morning!";
+        if (hour >= 5 && hour < 12) {
+            greeting = "Good Morning!";
+        } else if (hour >= 12 && hour < 15) {
+            greeting = "Good Afternoon!";
+        } else if (hour >= 15 && hour < 18) {
+            greeting = "Good Evening!";
+        } else {
+            greeting = "Good Night!";
+        }
+        greetingElement.textContent = greeting;
+    }
+
+    // Tambahkan updateGreeting
+    if (document.getElementById('greeting')) {
+        updateGreeting();
+    }
 });
 
 // Toggle sidebar
